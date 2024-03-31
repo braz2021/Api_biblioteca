@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: livros
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:h2:mem:db;Mode=Oracle;INIT=CREATE SCHEMA IF NOT EXISTS BIBLIOTECA
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  flyway:
+    url: jdbc:h2:mem:db;Mode=Oracle;INIT=CREATE SCHEMA IF NOT EXISTS BIBLIOTECA
+    user: sa
+    password: sa
+    default-schema: BIBLIOTECA
+    locations: classpath:db/migration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        default_schema: BIBLIOTECA
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      path: /h2
+      enabled: true
+
